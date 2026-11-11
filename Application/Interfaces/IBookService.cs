@@ -10,4 +10,6 @@ public interface IBookService
     Task<ApiResponse<bool>> DeleteBookAsync(int id);
     Task<ApiResponse<Book>> GetBookAsync(int id);
     Task<ApiResponse<List<Book>>> GetBooksAsync();
+    ApiResponse<List<Book>> GetBooksByAuthorIdAsync(int authorId);
+
 }

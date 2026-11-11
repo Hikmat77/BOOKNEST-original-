@@ -1,3 +1,4 @@
+using Application.DTOs;
 using Application.Responses;
 using Domain.Models;
 
@@ -10,4 +11,6 @@ public interface IAuthorService
     Task<ApiResponse<bool>> DeleteAuthorAsync(int id);
     Task<ApiResponse<Author>> GetAuthorAsync(int id);
     Task<ApiResponse<List<Author>>> GetAuthorsAsync();
+    Task<ApiResponse<List<AuthorWithBooks>>> GetAuthorsWithBooksAsync();
+
 }

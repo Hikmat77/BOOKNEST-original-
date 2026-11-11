@@ -8,4 +8,5 @@ public interface IBookRepositories
     Task<bool> DeleteBookAsync(int id);
     Task<Book> GetBookAsync(int id);
     Task<List<Book>> GetBooksAsync();
+    List<Book> GetBooksByAuthorId(int authorid);
 }

@@ -39,6 +39,15 @@ public class BookRepository(AppDbContext appDbContext) : IBookRepositories
         return (await connection.QueryAsync<Book>(query)).ToList();
     }
 
+    public List<Book> GetBooksByAuthorId(int authorid)
+    {
+        using var connection = _context.Connection();
+        connection.Open();
+        var books = connection.Query<Book>("select * from books where authorid=@authorid", new {authorid});
+        return books.ToList();
+    }
+
+
     public async Task<bool> UpdateBookAsync(Book book)
     {
         using var connection = _context.Connection();
