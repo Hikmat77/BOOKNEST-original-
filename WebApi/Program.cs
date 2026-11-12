@@ -3,6 +3,8 @@ using Application.Services;
 using Domain.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
+using Serilog;
+using Serilog.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,15 @@ builder.Services.AddScoped<IAuthorReporisotories, AuthorRepository>();
 builder.Services.AddScoped<IAuthorService, AuthorServices>();
 builder.Services.AddScoped<IGenreRepositories, GenreRepository>();
 builder.Services.AddScoped<IGenreService, GenreService>();
+
+Log.Logger = new LoggerConfiguration()
+    .MinimumLevel.Information()
+    .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
+    .Enrich.FromLogContext()
+    .WriteTo.File("logs/Booknest.log", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+builder.Host.UseSerilog();
 
 var app = builder.Build();
 

@@ -42,3 +42,14 @@ C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\obj\Debug\net10.0\refi
 C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\obj\Debug\net10.0\WebApi.pdb
 C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\obj\Debug\net10.0\WebApi.genruntimeconfig.cache
 C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\obj\Debug\net10.0\ref\WebApi.dll
+C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\bin\Debug\net10.0\Serilog.dll
+C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\bin\Debug\net10.0\Serilog.AspNetCore.dll
+C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\bin\Debug\net10.0\Serilog.Extensions.Hosting.dll
+C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\bin\Debug\net10.0\Serilog.Extensions.Logging.dll
+C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\bin\Debug\net10.0\Serilog.Formatting.Compact.dll
+C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\bin\Debug\net10.0\Serilog.Settings.Configuration.dll
+C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\bin\Debug\net10.0\Serilog.Sinks.Console.dll
+C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\bin\Debug\net10.0\Serilog.Sinks.Debug.dll
+C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\bin\Debug\net10.0\Serilog.Sinks.File.dll
+C:\Users\firuz\OneDrive\Desktop\BOOKNEST(original)\WebApi\obj\Debug\net10.0\WebApi.sourcelink.json

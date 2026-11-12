@@ -1,41 +1,51 @@
+using Application.DTOs;
 using Application.Interfaces;
 using Application.Responses;
-using Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class GenresController(IGenreService genreService) : ControllerBase
+public class GenresController(
+    IGenreService genreService,
+    ILogger<GenresController> logger) : ControllerBase
 {
     private IGenreService service = genreService;
-
-    [HttpGet]
-    public async Task<ApiResponse<List<Genre>>> GetGenres() => await service.GetGenresAsync();
-
-    [HttpGet("{id:int}")]
-    public async Task GetGenre(int id)
-    {
-        await service.GetGenreAsync(id);
-    }
+    private ILogger<GenresController> _logger = logger;
 
     [HttpPost]
-    public async Task AddGenre(Genre genre)
+    public async Task<ApiResponse<bool>> AddGenre(CreateGenreDto dto)
     {
-        await service.AddGenreAsync(genre);
+        _logger.LogInformation("POST api/Genres {date}", DateTime.Now);
+        return await service.AddGenreAsync(dto);
+    }
+
+    [HttpPut("{id:int}")]
+    public async Task<ApiResponse<bool>> UpdateGenre(int id, UpdateGenreDto dto)
+    {
+        _logger.LogInformation("PUT api/Genres/{id} {date}", id, DateTime.Now);
+        return await service.UpdateGenreAsync(id, dto);
     }
 
     [HttpDelete]
-    public async Task DeleteGenre(int id)
+    public async Task<ApiResponse<bool>> DeleteGenre(int id)
     {
-        await service.DeleteGenreAsync(id);
+        _logger.LogInformation("DELETE api/Genres?id={id} {date}", id, DateTime.Now);
+        return await service.DeleteGenreAsync(id);
     }
 
-    [HttpPut]
-    public async Task UpdateGenre(Genre genre)
+    [HttpGet("{id:int}")]
+    public async Task<ApiResponse<GenreDto>> GetGenre(int id)
     {
-        await service.UpdateGenreAsync(genre);
+        _logger.LogInformation("GET api/Genres/{id} {date}", id, DateTime.Now);
+        return await service.GetGenreAsync(id);
     }
 
+    [HttpGet]
+    public async Task<ApiResponse<List<GenreDto>>> GetGenres()
+    {
+        _logger.LogInformation("GET api/Genres {date}", DateTime.Now);
+        return await service.GetGenresAsync();
+    }
 }

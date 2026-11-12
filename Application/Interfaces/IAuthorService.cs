@@ -1,16 +1,14 @@
 using Application.DTOs;
 using Application.Responses;
-using Domain.Models;
 
 namespace Application.Interfaces;
 
 public interface IAuthorService
 {
-    Task<ApiResponse<bool>> AddAuthorAsync(Author author);
-    Task<ApiResponse<bool>> UpdateAuthorAsync(Author author);
+    Task<ApiResponse<bool>> AddAuthorAsync(CreateAuthorDto dto);
+    Task<ApiResponse<bool>> UpdateAuthorAsync(int id, UpdateAuthorDto dto);
     Task<ApiResponse<bool>> DeleteAuthorAsync(int id);
-    Task<ApiResponse<Author>> GetAuthorAsync(int id);
-    Task<ApiResponse<List<Author>>> GetAuthorsAsync();
+    Task<ApiResponse<AuthorDto>> GetAuthorAsync(int id);
+    Task<ApiResponse<List<AuthorDto>>> GetAuthorsAsync();
     Task<ApiResponse<List<AuthorWithBooks>>> GetAuthorsWithBooksAsync();
-
 }
