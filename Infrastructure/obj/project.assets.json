@@ -241,11 +241,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\Infrastructure\\Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
-      "projectPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\Infrastructure\\Infrastructure.csproj",
+      "projectPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\Infrastructure\\Infrastructure.csproj",
       "packagesPath": "C:\\Users\\firuz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\firuz\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -261,8 +261,8 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\Domain\\Domain.csproj"
+            "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\Domain\\Domain.csproj"
             }
           }
         }

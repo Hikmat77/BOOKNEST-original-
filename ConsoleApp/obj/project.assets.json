@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\ConsoleApp\\ConsoleApp.csproj",
+      "projectUniqueName": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\ConsoleApp\\ConsoleApp.csproj",
       "projectName": "ConsoleApp",
-      "projectPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\ConsoleApp\\ConsoleApp.csproj",
+      "projectPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\ConsoleApp\\ConsoleApp.csproj",
       "packagesPath": "C:\\Users\\firuz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\ConsoleApp\\obj\\",
+      "outputPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\ConsoleApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\firuz\\AppData\\Roaming\\NuGet\\NuGet.Config"

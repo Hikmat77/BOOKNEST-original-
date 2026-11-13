@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "r749RdQ3C7E=",
+  "dgSpecHash": "OSomU8AvUJQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\Application\\Application.csproj",
+  "projectFilePath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\Application\\Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\firuz\\.nuget\\packages\\dapper\\2.1.89\\dapper.2.1.89.nupkg.sha512",
     "C:\\Users\\firuz\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0\\microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512",

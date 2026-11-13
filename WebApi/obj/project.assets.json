@@ -1046,11 +1046,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\WebApi\\WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\WebApi\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\WebApi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\WebApi\\WebApi.csproj",
       "packagesPath": "C:\\Users\\firuz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\WebApi\\obj\\",
+      "outputPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\firuz\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1066,14 +1066,14 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
-            "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\Application\\Application.csproj"
+            "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\Application\\Application.csproj"
             },
-            "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\Domain\\Domain.csproj"
+            "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\Domain\\Domain.csproj"
             },
-            "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\Infrastructure\\Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST(original)\\Infrastructure\\Infrastructure.csproj"
+            "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\Infrastructure\\Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\firuz\\OneDrive\\Desktop\\BOOKNEST\\Infrastructure\\Infrastructure.csproj"
             }
           }
         }
