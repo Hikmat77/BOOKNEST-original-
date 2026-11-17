@@ -61,9 +61,9 @@ public class BookService(IBookRepositories bookRepositories) : IBookService
         return new ApiResponse<List<BookDto>>(HttpStatusCode.OK, "List of books.", res);
     }
 
-    public ApiResponse<List<BookDto>> GetBooksByAuthorIdAsync(int authorId)
+    public async Task<ApiResponse<List<BookDto>>> GetBooksByAuthorIdAsync(int authorId)
     {
-        var books = repository.GetBooksByAuthorId(authorId);
+        var books = await repository.GetBooksByAuthorIdAsync(authorId);
         var res = books.Select(x=>new BookDto()
         {
             Id = x.Id,

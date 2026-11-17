@@ -50,9 +50,9 @@ public class BookController(
     }
 
     [HttpGet("by-author/{authorId:int}")]
-    public ApiResponse<List<BookDto>> GetBooksByAuthorId(int authorId)
+    public async Task<ApiResponse<List<BookDto>>> GetBooksByAuthorId(int authorId)
     {
         _logger.LogInformation("GET api/Book/by-author/{authorId} {date}", authorId, DateTime.Now);
-        return service.GetBooksByAuthorIdAsync(authorId);
+        return await service.GetBooksByAuthorIdAsync(authorId);
     }
 }

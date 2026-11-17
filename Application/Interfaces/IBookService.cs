@@ -10,5 +10,5 @@ public interface IBookService
     Task<ApiResponse<bool>> DeleteBookAsync(int id);
     Task<ApiResponse<BookDto>> GetBookAsync(int id);
     Task<ApiResponse<List<BookDto>>> GetBooksAsync();
-    ApiResponse<List<BookDto>> GetBooksByAuthorIdAsync(int authorId);
+    Task<ApiResponse<List<BookDto>>> GetBooksByAuthorIdAsync(int authorId);
 }

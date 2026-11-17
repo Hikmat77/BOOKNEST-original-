@@ -1,58 +1,60 @@
-using Dapper;
 using Domain.Interfaces;
 using Domain.Models;
 using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
 
 public class BookRepository(AppDbContext appDbContext) : IBookRepositories
 {
-    private AppDbContext _context = appDbContext;
+    private readonly AppDbContext _context = appDbContext;
+
     public async Task<bool> AddBookAsync(Book book)
     {
-        using var connection = _context.Connection();
-        var query = "INSERT INTO books (title, publishedyear, totalcopies) VALUES (@title, @publishedyear, @totalcopies)";
-        var res = await connection.ExecuteAsync(query, book);
+        _context.Books.Add(book);
+        var res = await _context.SaveChangesAsync();
         return res > 0;
     }
 
     public async Task<bool> DeleteBookAsync(int id)
     {
-        using var connection = _context.Connection();
-        var query = "delete from books where id=@id";
-        var res = await connection.ExecuteAsync(query, new { id });
+        var book = await _context.Books.FirstOrDefaultAsync(x => x.Id == id);
+        if (book != null)
+        {
+            _context.Books.Remove(book);
+        }
+        var res = await _context.SaveChangesAsync();
         return res > 0;
     }
 
     public async Task<Book> GetBookAsync(int id)
     {
-        using var connection = _context.Connection();
-        var query = "select * from books where id=@id";
-        var book = await connection.QuerySingleAsync<Book>(query, new { id });
-        return book;
+        var book = await _context.Books.FirstOrDefaultAsync(x => x.Id == id);
+        return book ?? new();
     }
 
     public async Task<List<Book>> GetBooksAsync()
     {
-        using var connection = _context.Connection();
-        var query = "select * from books";
-        return (await connection.QueryAsync<Book>(query)).ToList();
+        return await _context.Books.ToListAsync();
     }
 
-    public List<Book> GetBooksByAuthorId(int authorid)
+    public async Task<List<Book>> GetBooksByAuthorIdAsync(int authorid)
     {
-        using var connection = _context.Connection();
-        connection.Open();
-        var books = connection.Query<Book>("select * from books where authorid=@authorid", new {authorid});
-        return books.ToList();
+        return await _context.Books
+            .Where(x => x.AuthorId == authorid)
+            .ToListAsync();
     }
-
 
     public async Task<bool> UpdateBookAsync(Book book)
     {
-        using var connection = _context.Connection();
-        var query = "update books set title=@title, publishedyear=@publishedyear, totalcopies=@totalcopies where id=@id";
-        var res = await connection.ExecuteAsync(query, book);
+        var existingBook = await _context.Books.FirstOrDefaultAsync(x => x.Id == book.Id);
+        if (existingBook != null)
+        {
+            existingBook.Title = book.Title;
+            existingBook.PublishedYear = book.PublishedYear;
+            existingBook.TotalCopies = book.TotalCopies;
+        }
+        var res = await _context.SaveChangesAsync();
         return res > 0;
     }
 }

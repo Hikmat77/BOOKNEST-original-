@@ -69,7 +69,7 @@ public class AuthorServices(
         var res = new List<AuthorWithBooks>();
         foreach (var x in authors)
         {
-            var books = _bookRepository.GetBooksByAuthorId(x.Id);
+            var books = await _bookRepository.GetBooksByAuthorIdAsync(x.Id);
             res.Add(new AuthorWithBooks()
             {
                 Id = x.Id,
