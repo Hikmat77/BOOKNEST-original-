@@ -19,7 +19,7 @@ public class BookService(IBookRepositories bookRepositories) : IBookService
             TotalCopies = dto.TotalCopies,
             AuthorId = dto.AuthorId
         };
-        var res = await repository.AddBookAsync(book);
+        var res = await repository.AddBookAsync(book, dto.GenreIds);
         return res == true
         ? new ApiResponse<bool>(HttpStatusCode.OK, "Added!", res)
         : new ApiResponse<bool>(HttpStatusCode.InternalServerError, "Not added.", res);
@@ -42,7 +42,12 @@ public class BookService(IBookRepositories bookRepositories) : IBookService
             Title = book.Title,
             PublishedYear = book.PublishedYear,
             TotalCopies = book.TotalCopies,
-            AuthorId = book.AuthorId
+            AuthorId = book.AuthorId,
+            Genres = book.Genres.Select(x => new GenreDto()
+            {
+                Id = x.Id,
+                Name = x.Name
+            }).ToList()
         };
         return new ApiResponse<BookDto>(HttpStatusCode.OK, "Book with given id.", res);
     }
@@ -56,7 +61,12 @@ public class BookService(IBookRepositories bookRepositories) : IBookService
             Title = x.Title,
             PublishedYear = x.PublishedYear,
             TotalCopies = x.TotalCopies,
-            AuthorId = x.AuthorId
+            AuthorId = x.AuthorId,
+            Genres = x.Genres.Select(g => new GenreDto()
+            {
+                Id = g.Id,
+                Name = g.Name
+            }).ToList()
         }).ToList();
         return new ApiResponse<List<BookDto>>(HttpStatusCode.OK, "List of books.", res);
     }
@@ -70,7 +80,12 @@ public class BookService(IBookRepositories bookRepositories) : IBookService
             Title = x.Title,
             PublishedYear = x.PublishedYear,
             TotalCopies = x.TotalCopies,
-            AuthorId = x.AuthorId
+            AuthorId = x.AuthorId,
+            Genres = x.Genres.Select(g => new GenreDto()
+            {
+                Id = g.Id,
+                Name = g.Name
+            }).ToList()
         }).ToList();
         return new ApiResponse<List<BookDto>>(HttpStatusCode.OK, "List of books by author.", res);
     }
@@ -84,7 +99,7 @@ public class BookService(IBookRepositories bookRepositories) : IBookService
             PublishedYear = dto.PublishedYear,
             TotalCopies = dto.TotalCopies
         };
-        var res = await repository.UpdateBookAsync(book);
+        var res = await repository.UpdateBookAsync(book, dto.GenreIds);
         return res == true
         ? new ApiResponse<bool>(HttpStatusCode.OK, "Updated!", res)
         : new ApiResponse<bool>(HttpStatusCode.InternalServerError, "Not updated.", res);

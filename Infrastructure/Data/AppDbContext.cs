@@ -19,6 +19,9 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             entity.Property(x => x.PublishedYear).HasColumnName("publishedyear");
             entity.Property(x => x.TotalCopies).HasColumnName("totalcopies");
             entity.Property(x => x.AuthorId).HasColumnName("authorid");
+            entity.HasOne(x => x.Author)
+                .WithMany(x => x.Books)
+                .HasForeignKey(x => x.AuthorId);
         });
 
         modelBuilder.Entity<Author>(entity =>
@@ -36,5 +39,24 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             entity.Property(x => x.Id).HasColumnName("id");
             entity.Property(x => x.Name).HasColumnName("name");
         });
+
+        modelBuilder.Entity<Book>()
+            .HasMany(x => x.Genres)
+            .WithMany(x => x.Books)
+            .UsingEntity<Dictionary<string, object>>(
+                "bookgenres",
+                right => right.HasOne<Genre>()
+                    .WithMany()
+                    .HasForeignKey("genreid"),
+                left => left.HasOne<Book>()
+                    .WithMany()
+                    .HasForeignKey("bookid"),
+                join =>
+                {
+                    join.ToTable("bookgenres");
+                    join.HasKey("bookid", "genreid");
+                    join.IndexerProperty<int>("bookid").HasColumnName("bookid");
+                    join.IndexerProperty<int>("genreid").HasColumnName("genreid");
+                });
     }
 }

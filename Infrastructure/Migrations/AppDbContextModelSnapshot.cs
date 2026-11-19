@@ -77,6 +77,8 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AuthorId");
+
                     b.ToTable("books", (string)null);
                 });
 
@@ -97,6 +99,54 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("genres", (string)null);
+                });
+
+            modelBuilder.Entity("bookgenres", b =>
+                {
+                    b.Property<int>("bookid")
+                        .HasColumnType("integer")
+                        .HasColumnName("bookid");
+
+                    b.Property<int>("genreid")
+                        .HasColumnType("integer")
+                        .HasColumnName("genreid");
+
+                    b.HasKey("bookid", "genreid");
+
+                    b.HasIndex("genreid");
+
+                    b.ToTable("bookgenres", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Models.Book", b =>
+                {
+                    b.HasOne("Domain.Models.Author", "Author")
+                        .WithMany("Books")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+                });
+
+            modelBuilder.Entity("bookgenres", b =>
+                {
+                    b.HasOne("Domain.Models.Book", null)
+                        .WithMany()
+                        .HasForeignKey("bookid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Models.Genre", null)
+                        .WithMany()
+                        .HasForeignKey("genreid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Models.Author", b =>
+                {
+                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

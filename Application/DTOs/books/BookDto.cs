@@ -7,4 +7,5 @@ public class BookDto
     public int PublishedYear {get; set;}
     public int TotalCopies {get; set;}
     public int AuthorId {get; set;}
+    public List<GenreDto> Genres { get; set; } = [];
 }

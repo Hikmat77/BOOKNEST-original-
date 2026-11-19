@@ -35,7 +35,10 @@ public class AuthorRepository(AppDbContext appDbContext) : IAuthorReporisotories
 
     public async Task<List<Author>> GetAuthorsAsync()
     {
-        return await _context.Authors.ToListAsync();
+        return await _context.Authors
+            .Include(x => x.Books)
+            .ThenInclude(x => x.Genres)
+            .ToListAsync();
     }
 
     public async Task<bool> UpdateAuthorAsync(Author author)

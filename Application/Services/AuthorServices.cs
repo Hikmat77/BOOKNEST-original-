@@ -8,12 +8,10 @@ using Domain.Models;
 namespace Application.Services;
 
 public class AuthorServices(
-    IAuthorReporisotories authorReporisotories,
-    IBookRepositories bookRepositories
+    IAuthorReporisotories authorReporisotories
     ) : IAuthorService
 {
     private IAuthorReporisotories repository = authorReporisotories;
-    private readonly IBookRepositories _bookRepository = bookRepositories;
 
     public async Task<ApiResponse<bool>> AddAuthorAsync(CreateAuthorDto dto)
     {
@@ -69,20 +67,24 @@ public class AuthorServices(
         var res = new List<AuthorWithBooks>();
         foreach (var x in authors)
         {
-            var books = await _bookRepository.GetBooksByAuthorIdAsync(x.Id);
             res.Add(new AuthorWithBooks()
             {
                 Id = x.Id,
                 Fullname = x.Fullname,
                 Country = x.Country,
                 BirthYear = x.BirthYear,
-                Books = books.Select(b=>new BookDto()
+                Books = x.Books.Select(b=>new BookDto()
                 {
                     Id = b.Id,
                     Title = b.Title,
                     PublishedYear = b.PublishedYear,
                     TotalCopies = b.TotalCopies,
-                    AuthorId = b.AuthorId
+                    AuthorId = b.AuthorId,
+                    Genres = b.Genres.Select(g => new GenreDto()
+                    {
+                        Id = g.Id,
+                        Name = g.Name
+                    }).ToList()
                 }).ToList()
             });
         }
